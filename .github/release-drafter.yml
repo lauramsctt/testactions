@@ -9,7 +9,7 @@ categories:
       - 'bugfix'
       - 'bug'
       - 'hotfix'
-  - title: '🧰 Maintanence'
+  - title: '🧰 Non-functional changes'
     label: 'refactor'
 autolabeler:
   - label: 'refactor'
