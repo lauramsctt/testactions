@@ -13,21 +13,22 @@ categories:
     label: 'refactor'
 autolabeler:
   - label: 'refactor'
-    files:
-      - '*.md'
     branch:
-      - '/docs{0,1}\/.+/'
+      - '/refactor\/.+/'
+    title:
+      - '/Refactor\/.+/'
   - label: 'bug'
     branch:
-      - '/fix\/.+/'
+      - '/bug\/.+/'
       - '/hotfix\/.+/'
     title:
-      - '/fix/i'
+      - '/Bug\/.+/'
+      - '/Hotfix\/.+/'
   - label: 'enhancement'
     branch:
       - '/feature\/.+/'
-    body:
-      - '/JIRA-[0-9]{1,4}/'
+    title:
+      - '/Feature\/.+/'
 template: |
   ## What’s Changed
 
