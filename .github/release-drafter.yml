@@ -8,10 +8,11 @@ categories:
       - 'fix'
       - 'bugfix'
       - 'bug'
-  - title: '🧰 Maintenance'
-    label: 'chore'
+      - 'hotfix'
+  - title: '🧰 Maintanence'
+    label: 'refactor'
 autolabeler:
-  - label: 'chore'
+  - label: 'refactor'
     files:
       - '*.md'
     branch:
@@ -19,6 +20,7 @@ autolabeler:
   - label: 'bug'
     branch:
       - '/fix\/.+/'
+      - '/hotfix\/.+/'
     title:
       - '/fix/i'
   - label: 'enhancement'
