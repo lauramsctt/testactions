@@ -18,10 +18,16 @@ jobs:
     - name: Create new issue
       id: create
       uses: atlassian/gajira-create@master
-
+      with:
+       project: TE
+       issuetype: Task
+       summary: |
+        Build completed for ${{ github.repository }}
+       description: |
+        Compare branch
+        
     - name: Transition issue
       uses: atlassian/gajira-transition@master
       with:
-        project: TE
         issue: ${{ steps.create.outputs.issue }}
         transition: "In progress"
