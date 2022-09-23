@@ -30,7 +30,7 @@ jobs:
       uses: atlassian/gajira-create@master
       with:
        project: TE
-       issuetype: Build
+       issuetype: Task
        summary: |
         Build completed for ${{ github.repository }}
        description: |
