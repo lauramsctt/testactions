@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Jira Example
+    if: ${{ !github.event.pull_request.draft }}
     steps:
     - name: Login
       uses: atlassian/gajira-login@master
@@ -17,7 +18,7 @@ jobs:
     - name: Find in commit messages
       uses: atlassian/gajira-find-issue-key@master
       with:
-       string: ${{ github.event.ref }}
+       string: ${{ github.event.pull_request.body }}
     
     - name: Find in commit messages
       uses: atlassian/gajira-find-issue-key@master
@@ -52,4 +53,4 @@ jobs:
       uses: atlassian/gajira-comment@master
       with:
        issue: ${{ steps.create.outputs.issue }}
-       comment: ${{ github.event.pusher.name }} pushed to repository ${{ github.event.repository.full_name }}
+       comment: ${{ github.event.pull_request.html_url }}
