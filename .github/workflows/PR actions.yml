@@ -1,4 +1,4 @@
-name: Jira Actions
+name: Transition to in review
 
 on: 
   pull_request:
@@ -31,7 +31,7 @@ jobs:
       uses: atlassian/gajira-transition@master
       with:
         issue: ${{ steps.find.outputs.issue }}
-        transition: "In progress"
+        transition: "PR Created"
 
     - name: Comment on issue
       uses: atlassian/gajira-comment@master
