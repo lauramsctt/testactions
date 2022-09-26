@@ -1,6 +1,12 @@
-on: push
+name: Jira Actions
 
-name: Jira Example
+on: 
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
 
 jobs:
   build:
@@ -37,6 +43,7 @@ jobs:
         issue: ${{ steps.find.outputs.issue }}
         transition: "In progress"
 
+        
     - name: Comment on issue
       uses: atlassian/gajira-comment@master
       with:
