@@ -1,16 +1,16 @@
-name: Release notes in Jira
+name: Release in Jira
 
 on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Release notes in Jira
+    name: Release in Jira
     steps:
-    - name: Login
-      uses: atlassian/gajira-login@master
-      env:
-        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
-        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-    
+      - name: Create Jira version
+        run: |
+            curl --user ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} \
+             --header "Content-Type: application/json" \
+             --url '${{ secrets.JIRA_BASE_URL }}/rest/api/3/version' \
+             -X POST \
+             --data '{ "name": "'"${{ github.event.release.name }}"'", "released": true, "releaseDate": "'"$(date +'%Y-%m-%d')"'", "projectId": 10000, "description": "'"${{ github.event.release.html_url }}"'" }'
