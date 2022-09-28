@@ -24,17 +24,21 @@ jobs:
     - name: Find in PR body
       id: find
       uses: atlassian/gajira-find-issue-key@master
+      continue-on-error: true
       with:
        string: ${{ github.event.pull_request.body }}
 
     - name: Transition issue
       uses: atlassian/gajira-transition@master
+      continue-on-error: true
       with:
         issue: ${{ steps.find.outputs.issue }}
         transition: "PR Created"
 
     - name: Comment on issue
       uses: atlassian/gajira-comment@master
+      continue-on-error: true
       with:
        issue: ${{ steps.find.outputs.issue }}
        comment: ${{ github.event.pull_request.html_url }}
+    
