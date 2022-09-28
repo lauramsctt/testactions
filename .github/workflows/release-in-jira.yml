@@ -1,6 +1,8 @@
 name: Release in Jira
 
-on: push
+on: 
+  release:
+    types: [released]
 
 jobs:
   build:
