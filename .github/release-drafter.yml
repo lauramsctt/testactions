@@ -1,3 +1,5 @@
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
@@ -29,6 +31,17 @@ autolabeler:
       - '/feature\/.+/'
     title:
       - '/Feature\/.+/'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
 template: |
   ## What’s Changed
 
