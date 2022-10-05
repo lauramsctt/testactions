@@ -38,5 +38,5 @@ jobs:
       continue-on-error: true
       with:
        issue: ${{ steps.find.outputs.issue }}
-       comment: "The PR was merged!"
+       comment: "The PR was merged"
     
